@@ -76,6 +76,7 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
   const { register, handleSubmit, reset, formState, setError, trigger } =
     useForm();
   const { errors } = formState;
+  // console.log(errors);
 
   const onSubmit = async (data: newImage): Promise<void> => {
     try {
@@ -125,19 +126,19 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           setError={setError}
           trigger={trigger}
           {...register('image', formValidations.image)}
-          error={errors.image}
+          error={errors?.image}
         />
 
         <TextInput
           placeholder="Título da imagem..."
           {...register('title', formValidations.title)}
-          error={errors.title}
+          error={errors?.title}
         />
 
         <TextInput
           placeholder="Descrição da imagem..."
           {...register('description', formValidations.description)}
-          error={errors.description}
+          error={errors?.description}
         />
       </Stack>
 
